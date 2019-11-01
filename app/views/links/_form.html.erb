@@ -14,19 +14,19 @@
       <form>
         <div class="form-group row">
           <label class="col-form-label col-sm-2 text-sm-right">Nom</label>
-          <div class="col-sm-10">
+          <div class="col-sm-10 col-lg-4">
             <%= f.text_field :title, class: "form-control" %>
           </div>
         </div>
         <div class="form-group row">
           <label class="col-form-label col-sm-2 text-sm-right">Url</label>
-          <div class="col-sm-10">
-            <%= f.text_area :url, class:"form-control" %>
+          <div class="col-sm-10 col-lg-4">
+            <%= f.text_field :url, class:"form-control" %>
           </div>
         </div>
         <div class="form-group row">
           <label class="col-form-label col-sm-2 text-sm-right">Ajouter des tag</label>
-          <div class="col-sm-10" id="tags">
+          <div class="col-sm-10 col-lg-4" id="tags">
             <%= f.simple_fields_for :taggings do |tagging| %>
               <%= render 'tagging_fields', :f => tagging %>
             <% end %>
