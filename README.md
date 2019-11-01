@@ -1,24 +1,4 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Hi there! :books:
+I decided to launch this app cause I have enough of losing my links I keep open in a window with endless tabs. Or I know I want to one day start studying a new langage but when the day comes I don't know where to start and where I kept the links on it.
