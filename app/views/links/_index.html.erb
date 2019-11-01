@@ -1,0 +1,17 @@
+<div class="row ml-2 mr-2">
+<% @links.each do |link| %>
+  <div class="col-sm-12 col-lg-3 mb-3">
+    <div class="card h-100 border-light text-white bg-dark mb-3">
+      <div class="card-body">
+        <h5 class="card-title"><%= link.title%></h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+      <div class="card-footer text-muted">
+        <% link.tags.each do |tag| %>
+          <span><%= tag.name %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
