@@ -1,0 +1,44 @@
+<% if @link.errors.any? %>
+  <div class='alert alert-danger p-2'>
+    <ul>
+      <% @link.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="card border-light text-white bg-dark ml-3">
+  <div class="card-body">
+    <%= simple_form_for @link do |f| %>
+      <form>
+        <div class="form-group row">
+          <label class="col-form-label col-sm-2 text-sm-right">Nom</label>
+          <div class="col-sm-10">
+            <%= f.text_field :title, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-form-label col-sm-2 text-sm-right">Url</label>
+          <div class="col-sm-10">
+            <%= f.text_area :url, class:"form-control" %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-form-label col-sm-2 text-sm-right">Ajouter des tag</label>
+          <div class="col-sm-10" id="tags">
+            <%= f.simple_fields_for :taggings do |tagging| %>
+              <%= render 'tagging_fields', :f => tagging %>
+            <% end %>
+            <div class='links'>
+              <%= link_to_add_association 'Ajouter un tag', f, :taggings, class:"btn btn-dark mt-2" %>
+            </div>
+          </div>
+          <div class="col-sm-10 ml-sm-auto">
+            <%= f.submit "Valider", class:"btn btn-secondary mt-2" %>
+          </div>
+        </div>
+      </form>
+    <% end %>
+  </div>
+</div>

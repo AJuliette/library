@@ -1,0 +1,11 @@
+<div class='nested-fields tagging-fields'>
+  <div class='form-inline'>
+    <div class='tag_from_list' style="display: inline;">
+      <%= f.association :tag, collection: Tag.order(:name), prompt: 'Choisissez un tag existant', label: false, class:"form-control select2" %>
+    </div>
+    <%= link_to_add_association 'ou créez un nouveau tag', f, :tag, class: 'add-tag btn btn-black mt-2 ml-2' %>
+    <%= link_to_remove_association f, class: 'remove-tag btn btn-default btn-xs' do %>
+      <i class="align-middle mr-2 fas fa-fw fa-trash"></i>
+    <% end %>
+  </div>
+</div>

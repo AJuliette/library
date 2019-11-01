@@ -1,0 +1,7 @@
+<h1><%= @tag.name %></h1>
+
+<% if @links.any? %>
+  <%= render 'links/index', locals: {links: @tag.links} %>
+<% else %>
+  <p>Pas encore d'articles dans cette catégorie !</p>
+<% end %>

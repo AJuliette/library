@@ -1,6 +1,7 @@
 class LinksController < ApplicationController
   def index
     @links = Link.all
+    @links.includes(:tags)
   end
 
   def new
@@ -10,7 +11,7 @@ class LinksController < ApplicationController
   def create
     @link = Link.new(link_params)
     if @link.save
-      redirect to home_path, notice: "Lien créé"
+      redirect_to root_path, notice: "Lien créé"
     else
       render :new
     end
@@ -23,7 +24,7 @@ class LinksController < ApplicationController
   def update
     @link = Link.find(params[:id])
     if @link.update(link_params)
-      redirect to home_path, notice: "Lien modifié"
+      redirect_to root_path, notice: "Lien modifié"
     else
       render :edit
     end
@@ -32,7 +33,10 @@ class LinksController < ApplicationController
   private
 
   def link_params
-    params.require(:link).permit(:url, :tag_id, :title, :color)
+    params.require(:link).permit(
+      :url, :tag_id, :title, :color,
+      taggings_attributes: [:id, :_destroy, :tag_id, tag_attributes: %i[id _destroy name color]]
+    )
   end
 end
 

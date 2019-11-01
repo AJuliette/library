@@ -1,0 +1,35 @@
+<% if @tag.errors.any? %>
+  <div class='alert alert-danger p-2'>
+    <ul>
+      <% @link.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="card border-light text-white bg-dark ml-3">
+  <div class="card-body">
+    <%= simple_form_for @tag do |f| %>
+      <form>
+        <div class="form-group row">
+          <label class="col-form-label col-sm-2 text-sm-right">Nom</label>
+          <div class="col-sm-10">
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-form-label col-sm-2 text-sm-right">Couleur</label>
+          <div class="col-sm-10">
+            <%= f.text_area :color, class:"form-control" %>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10 ml-sm-auto">
+            <%= f.submit "Valider", class:"btn btn-secondary mt-2" %>
+          </div>
+        </div>
+      </form>
+    <% end %>
+  </div>
+</div>
